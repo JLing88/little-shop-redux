@@ -6,14 +6,6 @@ RSpec.describe 'Home page' do
 
       within('.navbar') do
         expect(page).to have_content('Little Shop')
-      end
-    end
-
-    it 'displays links to indices' do
-      #is indices a good word to use?
-      visit '/'
-
-      within('.navbar') do
         expect(page).to have_content('Merchants')
       end
     end

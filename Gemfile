@@ -15,4 +15,5 @@ group :development, :test do
   gem 'tux'
   gem 'pry'
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
 end
