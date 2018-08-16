@@ -1,9 +1,11 @@
 ENV["RACK_ENV"] ||= "test"
 
 require File.expand_path("../../config/environment", __FILE__)
+require 'bundler'
 require 'rspec'
 require 'capybara/dsl'
-require 'bundler'
+
+Bundler.require(:default, :test)
 
 Capybara.app = LittleShopApp
 
