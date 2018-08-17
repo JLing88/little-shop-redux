@@ -11,13 +11,21 @@ RSpec.describe 'merchant index page' do
     end
   end
 
-  context 'clicks on create new mechant button' do
+  context 'user creates new merchant' do
     it 'shows a create new merchant page' do
 
       visit '/merchants'
       click_link("Create New Merchant")
 
       expect(current_path).to eq('/merchants/new')
+    end
+
+    it 'shows newly created merchant' do
+      visit '/merchants/new'
+      fill_in("merchant[name]", with: "Target")
+      click_on("Submit")
+
+      expect(page).to have_content("Target")
     end
   end
 end
