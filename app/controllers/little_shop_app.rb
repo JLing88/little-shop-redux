@@ -1,4 +1,6 @@
 class LittleShopApp < Sinatra::Base
+  set :method_override, true
+
   get '/' do
     erb :homepage
   end
@@ -23,7 +25,14 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/merchants/:id/edit' do
-    @merchant = Merchant.find(:id)
-    erb :"merchants/edit/:id"
+    @merchant = Merchant.find(params[:id])
+    erb :"merchants/edit"
   end
+
+  put 'merchants/:id' do
+    Merchant.update(params[:id], params[:name])
+    redirect "/merchants/#{params[:id]}"
+  end
+
+
 end
