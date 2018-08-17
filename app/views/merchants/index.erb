@@ -1,4 +1,9 @@
-<h1>Merchants</h1>
+<div>
+  <h1>Merchants</h1>
+  <button type='button' name='New Merchant'>Create New Merchant</button>
+</div>
+<div>
   <% @merchants.each do |merchant|%>
-    <%= merchant.name %>
+    <p><%= merchant.name %></p>
   <% end %>
+</div>

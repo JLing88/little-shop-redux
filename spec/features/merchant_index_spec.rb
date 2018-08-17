@@ -11,9 +11,10 @@ RSpec.describe 'merchant index page' do
     end
   end
 
-  context 'clicks on create new mechant button' do 
+  context 'clicks on create new mechant button' do
     it 'shows a create new merchant page' do
 
+      visit '/merchants'
       click_button("New Merchant")
 
       expect(current_path).to eq('/merchants/new')
