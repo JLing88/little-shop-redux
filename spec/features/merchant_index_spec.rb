@@ -15,8 +15,6 @@ RSpec.describe 'merchant index page' do
     it 'shows a create new merchant page' do
 
       visit '/merchants'
-      save_and_open_page
-
       click_link("Create New Merchant")
 
       expect(current_path).to eq('/merchants/new')
