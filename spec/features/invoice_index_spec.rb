@@ -1,7 +1,7 @@
 RSpec.describe 'invoice index page' do
   it 'should show all invoices' do
-    invoice_1 = Invoice.create(merchant_id: 100, status: 'pending')
-    invoice_2 = Invoice.create(merchant_id: 200, status: 'shipped')
+    invoice_1 = Invoice.create(merchant_id: 100, customer_id: 33, status: 'pending')
+    invoice_2 = Invoice.create(merchant_id: 200, customer_id: 44, status: 'shipped')
 
     visit '/invoices'
 
