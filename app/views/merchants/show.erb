@@ -3,3 +3,7 @@
 <form action='/merchants/<%= @merchant.id %>/edit' method='get'>
   <input type='submit' name="Edit" value="Edit">
 </form>
+
+<form action='/merchants/<%= @merchant.id %>' method='post'>
+  <input type='submit' name='_method' value='Delete'>
+</form>
