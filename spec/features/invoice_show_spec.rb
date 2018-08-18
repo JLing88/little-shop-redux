@@ -23,9 +23,6 @@ RSpec.describe 'invoice show page' do
     within('#Invoices')
       find_button('Edit').click
 
-      # save_and_open_page
-
-
     expect(current_path).to eq("/invoices/#{invoice.id}/edit")
   end
 end
