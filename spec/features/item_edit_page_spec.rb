@@ -25,7 +25,7 @@ RSpec.describe 'Item edit page' do
     click_on('Update Item')
 
     visit "/items/#{item.id}"
-    save_and_open_page
+    
     expect(page).to have_content("Updated_title")
     expect(page).to have_content("Updated_description")
     expect(page).to have_content("99.00")
