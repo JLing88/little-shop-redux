@@ -9,7 +9,6 @@ RSpec.describe 'merchant show page' do
   it 'should have an edit path' do
     merchant = Merchant.create(name: 'Turing School')
     visit "/merchants/#{merchant.id}"
-    save_and_open_page
     click_on("Edit")
 
     expect(current_path).to eq("/merchants/#{merchant.id}/edit")
