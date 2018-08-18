@@ -1,5 +1,7 @@
 class LittleShopApp < Sinatra::Base
 
+  set :method_override, true
+
   get '/' do
     erb :homepage
   end
@@ -21,6 +23,21 @@ class LittleShopApp < Sinatra::Base
   get '/merchants/:id' do
     @merchant = Merchant.find(params[:id])
     erb :"merchants/show"
+  end
+
+  put '/merchants/:id' do
+    Merchant.update(params[:id], params[:merchant])
+    redirect "/merchants/#{params[:id]}"
+  end
+
+  get '/merchants/:id/edit' do
+    @merchant = Merchant.find(params[:id])
+    erb :"merchants/edit"
+  end
+
+  delete '/merchants/:id' do
+    Merchant.destroy(params[:id])
+    redirect '/merchants'
   end
 
   get '/invoices' do
@@ -50,6 +67,21 @@ class LittleShopApp < Sinatra::Base
   get '/items/:id' do
     @item = Item.find(params[:id])
     erb :"items/show"
+  end
+
+  get '/items/:id/edit' do
+    @item = Item.find(params[:id])
+    erb :"items/edit"
+  end
+
+  put '/items/:id' do
+    @item = Item.update(params[:id], params[:item])
+    redirect '/items'
+  end
+
+  delete '/items/:id' do
+    Item.destroy(params[:id])
+    redirect '/items'
   end
 
   helpers do

@@ -1,10 +1,14 @@
 <div>
-  <h3>Items</h3>
-  <a href='/items/new'>Create New Item</a>
+  <h4>Items</h4>
+   <h5>
+    <a href='/items/new'>Create New Item</a>
+  </h5>
 </div>
 <div>
   <% @items.each do |item| %>
-    <h4> <%= item.title %> </h4>
+    <h4>
+      <a href="/items/<%= item.id %>"><%= item.title %></a>
+    </h4>
     <h5>Price: <%= number_to_currency(item.price) %> </h5>
   <% end %>
 </div>
