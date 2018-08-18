@@ -1,4 +1,5 @@
 class LittleShopApp < Sinatra::Base
+  
   set :method_override, true
 
   get '/' do
@@ -61,6 +62,16 @@ class LittleShopApp < Sinatra::Base
   get '/items/:id' do
     @item = Item.find(params[:id])
     erb :"items/show"
+  end
+
+  get '/items/:id/edit' do
+    @item = Item.find(params[:id])
+    erb :"items/edit"
+  end
+
+  put '/items/:id' do
+    @item = Item.update(params[:id], params[:item])
+    redirect '/items'
   end
 
   helpers do
