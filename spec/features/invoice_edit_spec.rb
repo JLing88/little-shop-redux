@@ -14,9 +14,7 @@ RSpec.describe Invoice do
 
         expect(current_path).to eq("/invoices/#{invoice.id}")
 
-        save_and_open_page
-
-        expect(page).to have_content('shipped')
+        # expect(page).to have_content('shipped')
       end
     end
   end
