@@ -1,6 +1,6 @@
 RSpec.describe 'invoice show page' do
   it 'should show one invoice' do
-    invoice = Invoice.create(merchant_id: 100, customer_id: 2, status: 'pending')
+    invoice = Invoice.create(merchant_id: 100, status: 'pending')
     visit '/invoices/1'
 
     expect(page).to have_content(invoice.status)
@@ -21,7 +21,10 @@ RSpec.describe 'invoice show page' do
     visit "/invoices/#{invoice.id}"
 
     within('#Invoices')
-      click_button 'Edit'
+      find_button('Edit').click
+
+      # save_and_open_page
+
 
     expect(current_path).to eq("/invoices/#{invoice.id}/edit")
   end

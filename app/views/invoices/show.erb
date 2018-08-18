@@ -1,5 +1,6 @@
 <h1 id='Invoices'>Invoice: <%= @invoice.id %> - <%= @invoice.status %></h1>
 
   <form action="/invoices/<%= @invoice.id %>/edit" method="GET">
-    <input type="submit" name='Edit' value='Edit' />
+    <!-- <input type="submit" name='Edit' value='Edit' /> -->
+    <button type="submit" value="Submit">Edit</button>
   </form>
