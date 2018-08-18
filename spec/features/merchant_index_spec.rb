@@ -12,7 +12,7 @@ RSpec.describe 'Merchant index page' do
   end
 
   context 'User creates new merchant' do
-    it 'shows a create new merchant page' do
+    it 'shows a create new merchant button' do
 
       visit '/merchants'
       click_link("Create New Merchant")
@@ -27,6 +27,13 @@ RSpec.describe 'Merchant index page' do
 
       expect(current_path).to eq('/merchants')
       expect(page).to have_content("Target")
+    end
+
+    it 'should cancel creation of new merchant' do
+      visit '/merchants/new'
+      expect(page).to have_content("Cancel")
+      click_on("Cancel")
+      expect(current_path).to eq('/merchants')
     end
   end
 end
