@@ -1,1 +1,10 @@
 <h1> <%= @merchant.name %></h1>
+
+<form action='/merchants/<%= @merchant.id %>/edit' method='get'>
+  <input type='submit' name="Edit" value="Edit">
+</form>
+
+<form action='/merchants/<%= @merchant.id %>' method='post'>
+  <input type='hidden' name='_method' value='Delete'>
+  <input type='submit' value='Delete'>
+</form>

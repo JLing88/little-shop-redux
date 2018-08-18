@@ -16,15 +16,15 @@ RSpec.describe 'item index page' do
       expect(page).to have_content(item_1.price)
       expect(page).to have_content(item_2.price)
     end
+  end
 
-    context 'User creates new item' do
-      it 'shows a create new item page' do
+  context 'User creates new item' do
+    it 'shows a create new item page' do
 
-        visit '/items'
-        click_link("Create New Item")
+      visit '/items'
+      click_link("Create New Item")
 
-        expect(current_path).to eq('/items/new')
-      end
+      expect(current_path).to eq('/items/new')
     end
 
     it 'shows newly created item' do
@@ -37,6 +37,16 @@ RSpec.describe 'item index page' do
       expect(current_path).to eq('/items')
       expect(page).to have_content("New Item")
       expect(page).to have_content(999999)
+    end
+
+    it 'should cancel creation of new item' do
+      visit '/items/new'
+
+      expect(page).to have_content("Cancel")
+
+      click_on("Cancel")
+
+      expect(current_path).to eq('/items')
     end
   end
 end

@@ -1,0 +1,12 @@
+<h4>Edit Item: <%= @item.title %> </h4>
+
+<form action="/items/<%= @item.id %>" method='post'>
+  <p>Change Items's Title Here:</p>
+  <input type='hidden' name='_method' value='put'>
+  <input type='text' name='item[title]' value='Title'>
+  <p>Change Items's Description Here:</p>
+  <input type='text' name='item[description]' value='Description'>
+  <p>Change Items's Price Here:</p>
+  <input type='text' name='item[price]' value='Price'>
+  <input type='submit' value='Update Item'
+</form>
