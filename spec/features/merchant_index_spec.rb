@@ -2,7 +2,7 @@ RSpec.describe 'Merchant index page' do
   context 'As a visitor' do
     it 'should show all merchants' do
       merchant_1 = Merchant.create(name: 'Turing School')
-      merchant_2 = Merchant.create(name: 'Google')
+      merchant_2 = Merchant.create(name: 'Goo gle')
 
       visit '/merchants'
 
