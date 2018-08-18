@@ -2,7 +2,7 @@ RSpec.describe 'Item edit page' do
   it 'should show edit page' do
     item = Item.create(title: "Widget_1",
                          description: "stuff",
-                         price: 299)
+                         unit_price: 299)
 
     visit "/items/#{item.id}/edit"
 
@@ -14,12 +14,12 @@ RSpec.describe 'Item edit page' do
   it 'should update item with new info' do
     item = Item.create(title: "Widget_1",
                        description: "stuff",
-                       price: 299)
+                       unit_price: 299)
 
     visit "/items/#{item.id}/edit"
 
     fill_in "item[title]", with: "Updated_title"
-    fill_in "item[price]", with: 99
+    fill_in "item[unit_price]", with: 99
 
     click_on('Update Item')
 

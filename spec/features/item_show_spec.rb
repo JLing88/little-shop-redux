@@ -3,11 +3,11 @@ RSpec.describe 'Item show page' do
     it 'one item' do
       item_1 = Item.create(title: "Widget_1",
                            description: "stuff",
-                           price: 299)
+                           unit_price: 299)
 
       item_2 = Item.create(title: "Widget_2",
                            description: "things",
-                           price: 1099)
+                           unit_price: 1099)
 
       visit '/items/1'
 
@@ -18,7 +18,7 @@ RSpec.describe 'Item show page' do
     it 'an edit button' do
       item = Item.create(title: "Widget_1",
                          description: "stuff",
-                         price: 299)
+                         unit_price: 299)
 
       visit "/items/#{item.id}"
       click_on('Edit')
@@ -29,7 +29,7 @@ RSpec.describe 'Item show page' do
     it 'a delete button' do
       item = Item.create(title: "Widget_1",
                          description: "stuff",
-                         price: 299)
+                         unit_price: 299)
 
       visit "/items/#{item.id}"
       expect(page).to have_content("Delete")
@@ -40,11 +40,11 @@ RSpec.describe 'Item show page' do
     it 'delete an item' do
       item_1 = Item.create(title: "Widget_1",
                            description: "stuff",
-                           price: 299)
+                           unit_price: 299)
 
       item_2 = Item.create(title: "Widget_2",
                            description: "things",
-                           price: 1099)
+                           unit_price: 1099)
 
       visit '/items'
       click_on('Widget_1')
