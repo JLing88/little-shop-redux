@@ -1,14 +1,13 @@
-RSpec.describe 'Invoice index page' do
-  context 'As a visitor' do
+RSpec.describe 'invoice index page' do
+  context 'As a user' do
     it 'should show all invoices' do
-      invoice_1 = Invoice.create(merchant_id: 100, customer_id: 33, status: 'pending')
-      invoice_2 = Invoice.create(merchant_id: 200, customer_id: 44, status: 'shipped')
+      invoice_1 = Invoice.create(merchant_id: 100, status: 'pending')
+      invoice_2 = Invoice.create(merchant_id: 200, status: 'shipped')
 
-      visit '/invoices'
+        visit '/invoices'
 
-      expect(page).to have_content(invoice_1.status)
-      expect(page).to have_content(invoice_2.status)
+        expect(page).to have_content(invoice_1.status)
+        expect(page).to have_content(invoice_2.status)
     end
   end
-
 end

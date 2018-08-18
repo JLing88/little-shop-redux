@@ -1,8 +1,21 @@
 RSpec.describe 'invoice show page' do
-  it 'should show one invoice' do
-    invoice = Invoice.create(merchant_id: 100, customer_id: 2, status: 'pending')
-    visit '/invoices/1'
+  context 'As a user' do
+    it 'should show one invoice' do
+      invoice = Invoice.create(merchant_id: 100, status: 'pending')
+      visit '/invoices/1'
 
-    expect(page).to have_content(invoice.status)
+      expect(page).to have_content(invoice.status)
+    end
+      it 'sends user to edit page' do
+      merchant = Merchant.create(name: "Joe")
+      invoice = Invoice.create(merchant_id: 200, status: 'shipped')
+
+      visit "/invoices/#{invoice.id}"
+
+      within('#Invoices')
+        find_button('Edit').click
+
+      expect(current_path).to eq("/invoices/#{invoice.id}/edit")
+    end
   end
 end
