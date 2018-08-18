@@ -25,7 +25,7 @@ CSV.foreach("./data/items.csv", headers: true, header_converters: :symbol) do |r
             )
 end
 
-CSV.foreach("./data/items.csv", headers: true, header_converters: :symbol) do |row|
+CSV.foreach("./data/invoices.csv", headers: true, header_converters: :symbol) do |row|
   Invoice.create(id: row[:id],
                 customer_id: row[:customer_id],
                 merchant_id: row[:merchant_id],
