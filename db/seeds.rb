@@ -1,5 +1,11 @@
 require 'csv'
 require './app/models/merchant'
+require './app/models/item'
+require './app/models/invoice'
+
+Merchant.destroy_all
+Item.destroy_all
+Invoice.destroy_all
 
 CSV.foreach("./data/merchants.csv", headers: true, header_converters: :symbol) do |row|
   Merchant.create(id: row[:id],
@@ -19,7 +25,7 @@ CSV.foreach("./data/items.csv", headers: true, header_converters: :symbol) do |r
             )
 end
 
-CSV.foreach(("./data/items.csv", headers: true, header_converters: :symbol) do |row|
+CSV.foreach("./data/items.csv", headers: true, header_converters: :symbol) do |row|
   Invoice.create(id: row[:id],
                 customer_id: row[:customer_id],
                 merchant_id: row[:merchant_id],
@@ -27,4 +33,4 @@ CSV.foreach(("./data/items.csv", headers: true, header_converters: :symbol) do |
                 created_at: row[:created_at],
                 updated_at: row[:updated_at]
                 )
-end 
+end
