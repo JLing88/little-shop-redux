@@ -3,8 +3,9 @@ require './app/models/merchant'
 require './app/models/item'
 require './app/models/invoice'
 
-Item.destroy_all
 Merchant.destroy_all
+Item.destroy_all
+
 Invoice.destroy_all
 
 CSV.foreach("./data/merchants.csv", headers: true, header_converters: :symbol) do |row|
