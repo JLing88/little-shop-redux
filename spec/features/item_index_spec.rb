@@ -3,18 +3,18 @@ RSpec.describe 'item index page' do
     it 'should show all items' do
       item_1 = Item.create(title: "Widget_1",
                            description: "stuff",
-                           price: 299)
+                           unit_price: 299)
 
       item_2 = Item.create(title: "Widget_2",
                            description: "more stuff",
-                           price: 1199)
+                           unit_price: 1199)
 
       visit '/items'
 
       expect(page).to have_content(item_1.title)
       expect(page).to have_content(item_2.title)
-      expect(page).to have_content(item_1.price)
-      expect(page).to have_content(item_2.price)
+      expect(page).to have_content(item_1.unit_price)
+      expect(page).to have_content(item_2.unit_price)
     end
   end
 
@@ -31,7 +31,7 @@ RSpec.describe 'item index page' do
       visit '/items/new'
       fill_in('item[title]', with: "New Item")
       fill_in('item[description]', with: "This does some things.")
-      fill_in('item[price]', with: 999999)
+      fill_in('item[unit_price]', with: 999999)
       click_on("Submit")
 
       expect(current_path).to eq('/items')
