@@ -4,6 +4,19 @@
 </div>
 <div>
   <% @merchants.each do |merchant|%>
-    <p><%= merchant.name %></p>
+    <div id="merchant-<%= merchant.id %>">
+      <h2>
+        <a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a>
+      </h2>
+
+      <form action='/merchants/<%= merchant.id %>/edit' method='get'>
+        <input id='edit' type='submit' name="Edit" value="Edit">
+      </form>
+
+      <form action='/merchants/<%= merchant.id %>' method='post'>
+        <input type='hidden' name='_method' value='Delete'>
+        <input type='submit' value='Delete'>
+      </form>
+    </div>
   <% end %>
 </div>
