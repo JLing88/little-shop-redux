@@ -16,5 +16,15 @@ RSpec.describe 'item index page' do
       expect(page).to have_content(item_1.price)
       expect(page).to have_content(item_2.price)
     end
+
+    context 'User creates new item' do
+      it 'shows a create new item page' do
+
+        visit '/items'
+        click_link("Create New Item")
+
+        expect(current_path).to eq('/item/new')
+      end
+    end
   end
 end
