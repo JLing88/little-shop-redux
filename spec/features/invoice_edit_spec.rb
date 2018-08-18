@@ -8,11 +8,9 @@ RSpec.describe Invoice do
 
       visit "/invoices/#{invoice.id}/edit"
 
-      find('.invoice-status-select').find(:option, "shipped").select_option
-
+        find('.invoice-status-select').find(:option, "shipped").select_option
 
         click_on('Update Invoice')
-        # save_and_open_page
 
         expect(current_path).to eq("/invoices/#{invoice.id}")
 
