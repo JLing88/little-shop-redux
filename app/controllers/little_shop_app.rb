@@ -1,5 +1,5 @@
 class LittleShopApp < Sinatra::Base
-  
+
   set :method_override, true
 
   get '/' do
@@ -71,6 +71,11 @@ class LittleShopApp < Sinatra::Base
 
   put '/items/:id' do
     @item = Item.update(params[:id], params[:item])
+    redirect '/items'
+  end
+
+  delete '/items/:id' do
+    Item.destroy(params[:id])
     redirect '/items'
   end
 
