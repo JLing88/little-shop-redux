@@ -22,16 +22,6 @@ class LittleShopApp < Sinatra::Base
     erb :"merchants/show"
   end
 
-  get '/invoices' do
-    @invoices = Invoice.all
-    erb :"invoices/index"
-  end
-
-  get '/invoices/:id' do
-    @invoice = Invoice.find(params[:id])
-    erb :"invoices/show"
-  end
-
   get '/items' do
     @items = Item.all
     erb :"items/index"
@@ -49,6 +39,16 @@ class LittleShopApp < Sinatra::Base
   get '/items/:id' do
     @item = Item.find(params[:id])
     erb :"items/show"
+  end
+
+  get '/invoices' do
+    @invoices = Invoice.all
+    erb :"invoices/index"
+  end
+
+  get '/invoices/:id' do
+    @invoice = Invoice.find(params[:id])
+    erb :"invoices/show"
   end
 
   get '/invoices/:id/edit' do
