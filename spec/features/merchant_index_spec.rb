@@ -19,6 +19,16 @@ RSpec.describe 'Merchant index page' do
       expect(current_path).to eq("/merchants/#{merchant_1.id}")
       expect(page).to have_content("#{merchant_1.name}")
     end
+
+    it 'should have an edit and delete button for each merchant' do
+      merchant_1 = Merchant.create(name: 'Turing School')
+      visit '/merchants'
+
+      within("#merchant-#{merchant_1.id}") do
+        expect(page).to have_button("Edit")
+        expect(page).to have_button("Delete")
+      end
+    end
   end
 
   context 'User creates new merchant' do
