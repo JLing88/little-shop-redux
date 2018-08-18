@@ -20,6 +20,11 @@ class LittleShopApp < Sinatra::Base
     redirect '/merchants'
   end
 
+  get '/merchants/merchants-dashboard' do
+    @merchants = Merchant.all
+    erb :"merchants/merchants-dashboard"
+  end
+
   get '/merchants/:id' do
     @merchant = Merchant.find(params[:id])
     erb :"merchants/show"
@@ -57,8 +62,8 @@ class LittleShopApp < Sinatra::Base
   get '/items/:id' do
     @item = Item.find(params[:id])
     erb :"items/show"
-  end  
-  
+  end
+
   get '/items/:id/edit' do
     @item = Item.find(params[:id])
     erb :"items/edit"
@@ -73,7 +78,7 @@ class LittleShopApp < Sinatra::Base
     Item.destroy(params[:id])
     redirect '/items'
   end
-  
+
   get '/invoices' do
     @invoices = Invoice.all
     erb :"invoices/index"
@@ -92,7 +97,7 @@ class LittleShopApp < Sinatra::Base
   put '/invoices/:id' do
     Invoice.update(paraams[:id], params[:invoice])
     redirect "/invoices/#{id}"
-  end 
+  end
 
   helpers do
     def number_to_currency(number)
