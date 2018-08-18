@@ -30,11 +30,20 @@ class LittleShopApp < Sinatra::Base
   get '/invoices/:id' do
     @invoice = Invoice.find(params[:id])
     erb :"invoices/show"
-  end 
+  end
 
   get '/items' do
     @items = Item.all
     erb :"items/index"
+  end
+
+  get '/items/new' do
+    erb :"items/new"
+  end
+
+  post '/items' do
+    Item.create(params[:item])
+    redirect '/items'
   end
 
   get '/items/:id' do
