@@ -4,15 +4,15 @@
   <input type='submit' value="Dashboard">
 </form>
 
-<a href='/merchants/new'>Create New Merchant</a>
+<a class='create-new' href='/merchants/new'>Create New Merchant</a>
 
 
 <div>
   <% @merchants.each do |merchant|%>
-    <div id="merchant-<%= merchant.id %>">
-      <h2>
+    <div id="merchant-<%= merchant.id %>" class='index-boxes'>
+      <p>
         <a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a>
-      </h2>
+      </p>
 
       <form action='/merchants/<%= merchant.id %>/edit' method='get'>
         <input id='edit' type='submit' name="Edit" value="Edit">
