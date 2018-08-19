@@ -1,7 +1,15 @@
 <form action="/invoices/<%= @invoice.id %>" method="post">
   <input type='hidden' name='_method' value='put'>
   <p>Edit</p>
-    <div>Status</div>
+  <div>Merchant</div>
+    <!-- <select class="merchant-name text-box" name="merchant[name]" disabled> -->
+    <select name="merchant[name]" disabled>
+      <% @invoices.find do |merchant| %>
+      <option><%= merchant.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <div>Status</div>
     <select class="invoice-status-select text-box" name="invoice[status]">
       <option value="pending">pending</option>
       <option value="shipped">shipped</option>
