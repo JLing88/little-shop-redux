@@ -71,8 +71,8 @@ class LittleShopApp < Sinatra::Base
   end
 
   put '/items/:id' do
-    @item = Item.update(params[:id], params[:item])
-    redirect '/items'
+    Item.update(params[:id], params[:item])
+    redirect "/items/#{params[:id]}"
   end
 
   delete '/items/:id' do

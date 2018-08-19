@@ -2,11 +2,11 @@
 
 <form action="/items/<%= @item.id %>" method='post'>
   <p>Change Items's Title Here:</p>
-  <input type='hidden' name='_method' value='put'>
-  <input type='text' name='item[title]' value='Title'>
+  <input type='text' name='item[title]' required>
   <p>Change Items's Description Here:</p>
-  <input type='text' name='item[description]' value='Description'>
+  <input type='text' name='item[description]' required>
   <p>Change Items's Price Here:</p>
-  <input type='text' name='item[unit_price]' value='Price'>
-  <input type='submit' value='Update Item'
+  <input type='text' name='item[unit_price]' required>
+  <input type='hidden' name='_method' value='put'>
+  <input type='submit' value='Update' name='Update Item'>
 </form>
