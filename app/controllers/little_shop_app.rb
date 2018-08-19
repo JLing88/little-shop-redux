@@ -20,6 +20,11 @@ class LittleShopApp < Sinatra::Base
     redirect '/merchants'
   end
 
+  get '/merchants/merchants-dashboard' do
+    @merchants = Merchant.all
+    erb :"merchants/merchants-dashboard"
+  end
+
   get '/merchants/:id' do
     @merchant = Merchant.find(params[:id])
     erb :"merchants/show"
@@ -91,8 +96,13 @@ class LittleShopApp < Sinatra::Base
   end
 
   put '/invoices/:id' do
-    Invoice.update(paraams[:id], params[:invoice])
+    Invoice.update(params[:id], params[:invoice])
     redirect "/invoices/#{id}"
+  end
+
+  delete '/invoices/:id' do
+    Invoice.destroy(params[:id])
+    redirect '/invoices'
   end
 
   helpers do
