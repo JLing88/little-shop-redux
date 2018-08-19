@@ -95,10 +95,15 @@ class LittleShopApp < Sinatra::Base
   end
 
   put '/invoices/:id' do
-    Invoice.update(paraams[:id], params[:invoice])
+    Invoice.update(params[:id], params[:invoice])
     redirect "/invoices/#{id}"
   end
-
+  
+  delete '/invoices/:id' do
+    Invoice.destroy(params[:id])
+    redirect '/invoices'
+  end
+  
   helpers do
     def number_to_currency(number)
       ('$%.2f' % number).to_s
