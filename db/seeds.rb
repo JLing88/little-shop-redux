@@ -18,7 +18,7 @@ end
 
 CSV.foreach("./data/items.csv", headers: true, header_converters: :symbol) do |row|
   Item.create(id:          row[:id],
-              title:       row[:name]
+              title:       row[:name],
               description: row[:description],
               merchant_id: row[:merchant_id],
               unit_price:  row[:unit_price],

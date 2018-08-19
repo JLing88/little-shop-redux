@@ -18,8 +18,10 @@ RSpec.describe 'Invoice show page' do
       expect(current_path).to eq("/invoices/#{invoice.id}/edit")
     end
     it 'user can delete an invoice from show page' do
-      invoice_1 = Invoice.create(merchant_id: 5, status: 'pending')
-      invoice_2 = Invoice.create(merchant_id: 2, status: 'complete')
+      merchant_1 = Merchant.create(name: "Joe")
+      merchant_2 = Merchant.create(name: "Joelle")
+      invoice_1 = merchant_1.invoices.create(status: 'pending')
+      invoice_2 = merchant_2.invoices.create(status: 'complete')
 
       visit '/invoices'
       click_on(invoice_1.id)

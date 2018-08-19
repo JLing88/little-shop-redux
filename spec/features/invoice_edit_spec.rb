@@ -4,7 +4,7 @@ RSpec.describe Invoice do
       it 'can edit an invoice' do
 
       merchant = Merchant.create(name: 'Joanne')
-      invoice = Invoice.create(merchant_id: 1, status: 'pending')
+      invoice = merchant.invoices.create(status: 'pending')
 
       visit "/invoices/#{invoice.id}/edit"
 
@@ -14,7 +14,7 @@ RSpec.describe Invoice do
 
         expect(current_path).to eq("/invoices/#{invoice.id}")
 
-        # expect(page).to have_content('shipped')
+        expect(page).to have_content('shipped')
       end
     end
   end
