@@ -13,7 +13,6 @@ RSpec.describe 'invoice index page' do
       invoice_2 = Invoice.create(merchant_id: 2, status: 'complete')
 
       visit '/invoices'
-      save_and_open_page
 
         click_on('Delete')
 
