@@ -1,6 +1,7 @@
 <form action='/items' method='POST'>
   <h3>Create new Item</h3>
 
+  <h4>Select merchant:</h4>
   <select>
     <% @merchants.each do |merchant| %>
     <option><%= merchant.name %></option>

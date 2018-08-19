@@ -20,12 +20,12 @@ RSpec.describe 'Item edit page' do
 
     fill_in "item[title]", with: "Updated_title"
     fill_in "item[unit_price]", with: 99
+    fill_in "item[description]", with: "Stuff"
 
-    click_on('Update Item')
-
-    visit "/items/#{item.id}"
+    click_on('Update')
 
     expect(page).to have_content("Updated_title")
     expect(page).to have_content("99.00")
+    expect(page).to have_content("Stuff")
   end
 end
