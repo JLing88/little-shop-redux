@@ -2,11 +2,12 @@ require 'csv'
 require './app/models/merchant'
 require './app/models/item'
 require './app/models/invoice'
+require './app/models/invoice_item'
 
 Merchant.destroy_all
 Item.destroy_all
-
 Invoice.destroy_all
+InvoiceItem.destroy_all
 
 CSV.foreach("./data/merchants.csv", headers: true, header_converters: :symbol) do |row|
   Merchant.create(id:         row[:id],
