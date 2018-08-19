@@ -3,15 +3,15 @@
   <div>
     <% @invoices.each do |invoice|%>
       <div id="invoice-<%= invoice.id %>">
-          <a href="/invoices/<%= invoice.id %>"><%= invoice.id %></a>
+          <a href="/invoices/<%= invoice.id %>">Invoice: <%= invoice.id %></a>
 
         <form action='/invoices/<%= invoice.id %>/edit' method='get'>
-          <button type='submit' value="Edit">Edit</button>
+          <input type='submit' value="Edit" name='Edit'>
         </form>
 
         <form action='/invoices/<%= invoice.id %>' method='post'>
-          <input type='hidden' name='_method' value='Delete'>
-          <button type='submit' value='Delete'>Delete</button>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Delete'>
         </form>
       </div>
     <% end %>

@@ -1,7 +1,7 @@
 <form action="/invoices/<%= @invoice.id %>" method="post">
+  <input type='hidden' name='_method' value='put'>
   <p>Edit</p>
     <div>Status</div>
-    <!-- <input type='hidden' name='_method' value='put'> -->
     <select class="invoice-status-select text-box" name="invoice[status]">
       <option value="pending">pending</option>
       <option value="shipped">shipped</option>
