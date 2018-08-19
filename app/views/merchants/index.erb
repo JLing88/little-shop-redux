@@ -1,7 +1,12 @@
-<div>
-  <h1>Merchants</h1>
-  <a href='/merchants/new'>Create New Merchant</a>
-</div>
+<h1>Merchants</h1>
+
+<form action='/merchants/merchants-dashboard' method='get'>
+  <input type='submit' value="Dashboard">
+</form>
+
+<a href='/merchants/new'>Create New Merchant</a>
+
+
 <div>
   <% @merchants.each do |merchant|%>
     <div id="merchant-<%= merchant.id %>">

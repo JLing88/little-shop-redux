@@ -29,6 +29,13 @@ RSpec.describe 'Merchant index page' do
         expect(page).to have_button("Delete")
       end
     end
+
+    it 'should have a dashboard link' do
+      visit '/merchants'
+      click_on("Dashboard")
+
+      expect(current_path).to eq('/merchants/merchants-dashboard')
+    end
   end
 
   context 'User creates new merchant' do
