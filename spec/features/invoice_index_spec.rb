@@ -6,8 +6,17 @@ RSpec.describe 'Invoice index page' do
 
         visit '/invoices'
 
-        expect(page).to have_content(invoice_1.status)
-        expect(page).to have_content(invoice_2.status)
+        expect(page).to have_content(invoice_1.id)
+        expect(page).to have_content(invoice_2.id)
+    end
+    it 'user can delete an invoice from index page' do
+      invoice_2 = Invoice.create(merchant_id: 2, status: 'complete')
+
+      visit '/invoices'
+
+        click_on('Delete')
+
+      expect(page).not_to have_content('status: complete')
     end
     it 'should cancel editing of an invoice' do
       merchant = Merchant.create(name: "Joe")
