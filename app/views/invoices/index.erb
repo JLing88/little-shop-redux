@@ -1,4 +1,18 @@
-<h1>Invoices</h1>
-  <% @invoices.each do |invoice|%>
-    <%= invoice.status %>
-  <% end %>
+<h1 id='Invoices'>Invoices</h1>
+
+  <div>
+    <% @invoices.each do |invoice|%>
+      <div id="invoice-<%= invoice.id %>">
+          <a href="/invoices/<%= invoice.id %>"><%= invoice.id %></a>
+
+        <form action='/invoices/<%= invoice.id %>/edit' method='get'>
+          <button type='submit' value="Edit">Edit</button>
+        </form>
+
+        <form action='/invoices/<%= invoice.id %>' method='post'>
+          <input type='hidden' name='_method' value='Delete'>
+          <button type='submit' value='Delete'>Delete</button>
+        </form>
+      </div>
+    <% end %>
+  </div>
