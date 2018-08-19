@@ -1,4 +1,40 @@
 body {
-  background-color: cyan;
-  font-family: sans-serif;
+  background-color: #F2F2F2;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+h1 {
+  text-align: center;
+  font-size: 30px;
+}
+
+.create-new {
+  background: white;
+  border: 5px solid #3F8DA7;
+  color: #3F8DA7;
+  padding: 5px 10px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.index-boxes {
+  font-color: #83B9BA;
+  background-color: #83B9BA;
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  margin: 10px 10px;
+  font-size: 12px;
+}
+
+.index-boxes p {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.index-boxes form {
+  display: inline-block;
 }
