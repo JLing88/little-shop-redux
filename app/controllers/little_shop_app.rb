@@ -80,6 +80,14 @@ class LittleShopApp < Sinatra::Base
     redirect '/items'
   end
 
+  get '/items-dashboard' do
+    @count = Item.all.count
+    @avg_price = Item.average_price
+    @newest_item = Item.newest_item
+    @oldest_item = Item.oldest_item
+    erb :"dashboards/items-dashboard"
+  end
+
   get '/invoices' do
     @invoices = Invoice.all
     erb :"invoices/index"
