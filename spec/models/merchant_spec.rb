@@ -7,4 +7,9 @@ RSpec.describe Merchant, type: :model do
     association = described_class.reflect_on_association(:items)
     expect(association.macro).to eq :has_many
   end
+
+  it 'should have many invoices' do
+    association = described_class.reflect_on_association(:invoices)
+    expect(association.macro).to eq :has_many
+  end
 end
