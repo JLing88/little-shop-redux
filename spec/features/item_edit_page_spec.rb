@@ -25,7 +25,7 @@ RSpec.describe 'Item edit page' do
     click_on('Update')
 
     expect(page).to have_content("Updated_title")
-    expect(page).to have_content("99.00")
+    expect(page).to have_content(".99")
     expect(page).to have_content("Stuff")
   end
 end
