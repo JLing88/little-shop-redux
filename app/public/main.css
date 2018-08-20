@@ -1,18 +1,49 @@
 body {
-  background-color: #F2F2F2;
-  font-family: 'Raleway', sans-serif;
-
+  background-color: #BFDBF7;
+  font-family: 'Sarala', sans-serif;
+  text-align: center;
 }
 
-h1 {
-  text-align: center;
-  font-size: 30px;
+a {
+  color: darkblue;
+}
+
+header {
+  height: 50px;
+  padding: 0 25px;
+}
+
+header nav {
+  float: right;
+}
+
+header h1 {
+  color: "#022B3A";
+  float: left;
+  font-size: 25px;
+  padding: 20px;
+}
+
+header nav {
+  float: right;
+}
+
+nav li {
+  display: inline-block;
+  padding: 20px 20px;
+}
+
+.title {
+  color: darkblue;
+  font-size: 25px;
+  float: center;
 }
 
 .create-new {
-  background: white;
-  border: 5px solid #3F8DA7;
-  color: #3F8DA7;
+  color: darkgrey;
+  background-color: lightgrey;
+  border: 2px solid #1f7a8c;
+  color: #022b3a;
   padding: 5px 10px;
   text-decoration: none;
   display: inline-block;
@@ -20,14 +51,15 @@ h1 {
 }
 
 .index-boxes {
-  font-color: #83B9BA;
-  background-color: #83B9BA;
+  color: #022b3a;
+  background-color: #e1e5f2;
   width: 30%;
   display: inline-block;
   text-align: center;
   vertical-align: top;
   margin: 10px 10px;
   font-size: 12px;
+  border: 6px solid #022B3A;
 }
 
 .index-boxes p {
@@ -36,5 +68,14 @@ h1 {
 }
 
 .index-boxes form {
+  display: inline-block;
+}
+
+#navbar {
+  float: right;
+
+}
+
+#navbar li {
   display: inline-block;
 }
