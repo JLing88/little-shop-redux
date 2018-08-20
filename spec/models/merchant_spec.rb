@@ -3,9 +3,9 @@ RSpec.describe Merchant, type: :model do
     it { should validate_presence_of(:name) }
   end
 
-  it 'should have many items' do
-    association = described_class.reflect_on_association(:items)
-    expect(association.macro).to eq :has_many
+  describe 'Relationships' do
+    it { should have_many(:items) }
+    it { should have_many(:invoices) }
   end
 
   it 'should have many invoices' do
