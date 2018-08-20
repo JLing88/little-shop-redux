@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :merchant
   has_many :invoice_items
-  has_many :invoices, through :invoice_items
+  has_many :invoices, through: :invoice_items
   validates_presence_of :title, :description, :unit_price
 
   def self.average_price
