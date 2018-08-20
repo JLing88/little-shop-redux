@@ -2,7 +2,6 @@
   <input type='hidden' name='_method' value='put'>
   <p>Invoice: <%= @invoice.id%> - <%= @invoice.status %></p>
   <div>Merchant</div>
-    <!-- <select class="merchant-name text-box" name="merchant[name]" disabled> -->
     <select name="merchant[name]" disabled>
       <option><%= @invoice.merchant.name %></option>
     </select>
