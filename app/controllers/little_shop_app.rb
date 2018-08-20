@@ -115,7 +115,7 @@ class LittleShopApp < Sinatra::Base
 
   helpers do
     def number_to_currency(number)
-      ('$%.2f' % number).to_s
+      ('$%.2f' % (number/100)).to_s
     end
   end
 end

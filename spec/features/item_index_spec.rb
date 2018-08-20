@@ -13,8 +13,8 @@ RSpec.describe 'item index page' do
 
       expect(page).to have_content(item_1.title)
       expect(page).to have_content(item_2.title)
-      expect(page).to have_content(item_1.unit_price)
-      expect(page).to have_content(item_2.unit_price)
+      expect(page).to have_content("11.99")
+      expect(page).to have_content("2.99")
     end
   end
 
@@ -31,12 +31,13 @@ RSpec.describe 'item index page' do
       visit '/items/new'
       fill_in('item[title]', with: "New Item")
       fill_in('item[description]', with: "This does some things.")
-      fill_in('item[unit_price]', with: 999999)
+      fill_in('item[unit_price]', with: 99)
       click_on("Submit")
 
       expect(current_path).to eq('/items')
       expect(page).to have_content("New Item")
-      expect(page).to have_content(999999)
+      expect(page).to have_content(".99")
+
     end
 
     it 'should cancel creation of new item' do
