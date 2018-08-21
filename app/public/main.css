@@ -6,6 +6,7 @@ body {
 
 a {
   color: darkblue;
+  float: center;
 }
 
 header {
@@ -33,6 +34,22 @@ nav li {
   padding: 20px 20px;
 }
 
+.dashboard {
+  float:left;
+}
+
+.dashboard-header {
+  font-size: 25px;
+}
+
+.dashboard-box {
+  border: 3px solid #022B3A;
+  background-color: #e1e5f2;
+}
+
+.dashboard-box p {
+  font-size: 18px;
+}
 .title {
   color: darkblue;
   font-size: 25px;

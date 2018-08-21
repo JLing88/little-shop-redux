@@ -97,6 +97,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/invoices/:id' do
     @invoice = Invoice.find(params[:id])
+    @total_price = 0
     erb :"invoices/show"
   end
 
@@ -113,6 +114,14 @@ class LittleShopApp < Sinatra::Base
   delete '/invoices/:id' do
     Invoice.destroy(params[:id])
     redirect '/invoices'
+  end
+
+  get '/invoices-dashboard' do
+    @percent_pending = Invoice.status_percent('pending')
+    @percent_shipped = Invoice.status_percent('shipped')
+    @percent_returned = Invoice.status_percent('returned')
+
+    erb :'dashboards/invoices-dashboard'
   end
 
   helpers do
