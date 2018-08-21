@@ -12,12 +12,14 @@
 
   <table>
   <tr>
-    <th>Title: </th>
-    <th>Unit Price: </th>
-    <th>Quantity: </th>
+    <th> -Item ID- </th>
+    <th> -Title- </th>
+    <th> -Unit Price- </th>
+    <th> -Quantity- </th>
   </tr>
   <% @invoice.invoice_items.each do |ii|%>
   <tr>
+    <td><%= ii.item.id %>
     <td><%= ii.item.title %></td>
     <td><%= number_to_currency(ii.unit_price) %></td>
     <td><%= ii.quantity %></td>
