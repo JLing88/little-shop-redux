@@ -36,7 +36,6 @@ RSpec.describe 'item index page' do
 
       expect(current_path).to eq('/items')
       expect(page).to have_content("New Item")
-      expect(page).to have_content(".99")
 
     end
 
