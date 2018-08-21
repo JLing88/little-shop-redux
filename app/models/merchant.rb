@@ -4,6 +4,6 @@ class Merchant < ActiveRecord::Base
   validates_presence_of :name
 
   def average_price
-    items.average(:unit_price).round(2)
+    items.average(:unit_price)
   end
 end
