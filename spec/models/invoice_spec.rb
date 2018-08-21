@@ -36,16 +36,12 @@ RSpec.describe Invoice, type: :model do
         @invoice_1 = Invoice.create(merchant_id: 2, customer_id: 2, status: 'pending')
         @invoice_2 = Invoice.create(merchant_id: 2, customer_id: 2, status: 'returned')
 
-        # create items here
         @item_1 = Item.create(title: "He-Man T-shirt", description: '100% Cotton', unit_price: 15)
         @item_2 = Item.create(title: "Mr T T-shirt", description: '50/50 Blend', unit_price: 20)
 
-
-        # invoice_1.invoice_items.create(quantity: 2, unit_price: 25, item_id: 1)
         @ii_1 = @invoice_1.invoice_items.create(quantity: 3, unit_price: 50, item_id: @item_1.id)
 
         @ii_2 = @invoice_2.invoice_items.create(quantity: 4, unit_price: 10, item_id: @item_2.id)
-        # invoice_2.invoice_items.create(quantity: 2, unit_price: 5, item_id: 4)
       end
       it 'should find invoice with highest unit price' do
         highest_unit_price = Invoice.with_highest_unit_price
