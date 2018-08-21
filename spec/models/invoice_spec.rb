@@ -31,5 +31,7 @@ RSpec.describe Invoice, type: :model do
       expect(percent_shipped.round(2)).to eq(16.67)
       expect(percent_returned.round(2)).to eq(50)
     end
+    it 'should find invoice with item with highest unit price'
+      invoice_1 = 
   end
 end
