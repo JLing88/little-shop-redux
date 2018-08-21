@@ -15,5 +15,4 @@ class Item < ActiveRecord::Base
   def self.newest_item
     Item.order(created_at: :desc).first
   end
-
 end
