@@ -1,11 +1,13 @@
-<h1>Merchants Dashboard</h1>
+<h1 class='dashboard-header'>Merchants Dashboard</h1>
 
-<h3>Merchant With Most Items:</h3>
+<div class='dashboard-box'>
+  <p>Merchant With Most Items:</p>
 
-<h3>Merchant With Highest Price Item:</h3>
+  <p>Merchant With Highest Price Item:</p>
+</div>
 
 <% @merchants.each do |merchant| %>
-  <div id="merchant-<%= merchant.id %>">
+  <div id="merchant-<%= merchant.id %>" class='index-boxes'>
     <label class='total-items'>Total Items: <%= merchant.items.count %>
   </div>
 <% end %>
