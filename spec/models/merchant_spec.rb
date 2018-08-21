@@ -18,6 +18,15 @@ RSpec.describe Merchant, type: :model do
 
       expect(Merchant.most_items).to eq(merchant_1)
     end
+
+    it '.highest_priced_item'do
+    merchant_1 = Merchant.create(name: "Target")
+    merchant_2 = Merchant.create(name: "Store")
+    item_1 = merchant_1.items.create(title: "a thing", description: "lkjdf", unit_price:70)
+    item_2 = merchant_2.items.create(title: "something", description: "lkjsdfkjdubiuet", unit_price: 1000)
+
+    expect(Merchant.highest_priced_item).to eq(merchant_2)
+    end
   end
 
   describe 'Instance Methods' do

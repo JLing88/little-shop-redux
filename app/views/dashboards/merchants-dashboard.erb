@@ -1,8 +1,10 @@
 <h1>Merchants Dashboard</h1>
 
 <h3>Merchant With Most Items:</h3>
-<a href="/merchants/<%= @most_items.id %>"><%= @most_items.name %></a>
-<h3>Merchant With Highest Price Item:</h3>
+<a id='most-items' href="/merchants/<%= @most_items.id %>"><%= @most_items.name %></a>
+<h3>Merchant With Highest Priced Item:</h3>
+<a id='high-price' href="/merchants/<%= @highest_priced_item.id %>"><%= @highest_priced_item.name %></a>
+
 
 <% @merchants.each do |merchant| %>
   <div id="merchant-<%= merchant.id %>">
@@ -12,3 +14,4 @@
     <p>Total Price of all Items: $<%= merchant.total_item_price.round(2) %></p>
   </div>
 <% end %>
+  
