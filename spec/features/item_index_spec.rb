@@ -35,8 +35,7 @@ RSpec.describe 'item index page' do
       click_on("Submit")
 
       expect(current_path).to eq('/items')
-      expect(page).to have_content("New Item")
-      expect(page).to have_content(".99")
+      expect(page).to have_content("#{Item.all.last.title}")
 
     end
 
