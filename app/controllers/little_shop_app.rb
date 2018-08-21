@@ -20,9 +20,9 @@ class LittleShopApp < Sinatra::Base
     redirect '/merchants'
   end
 
-  get '/merchants/merchants-dashboard' do
+  get '/merchants-dashboard' do
     @merchants = Merchant.all
-    erb :"merchants/merchants-dashboard"
+    erb :"dashboards/merchants-dashboard"
   end
 
   get '/merchants/:id' do
