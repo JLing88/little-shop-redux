@@ -37,5 +37,9 @@ RSpec.describe 'Merchant Dashboard' do
     visit '/merchants-dashboard'
 
     expect(page).to have_content("Merchant With Most Items:\n#{Merchant.most_items.name}")
+
+    click_on("#{Merchant.most_items.name}")
+
+    expect(current_path).to eq("/merchants/#{Merchant.most_items.id}")
   end
 end

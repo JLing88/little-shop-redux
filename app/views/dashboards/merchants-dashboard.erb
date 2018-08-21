@@ -1,7 +1,7 @@
 <h1>Merchants Dashboard</h1>
 
 <h3>Merchant With Most Items:</h3>
-<p><%= @most_items.name %></p>
+<a href="/merchants/<%= @most_items.id %>"><%= @most_items.name %></a>
 <h3>Merchant With Highest Price Item:</h3>
 
 <% @merchants.each do |merchant| %>
