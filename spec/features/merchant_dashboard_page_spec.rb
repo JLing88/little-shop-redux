@@ -37,12 +37,10 @@ RSpec.describe 'Merchant Dashboard' do
     visit '/merchants-dashboard'
 
     expect(page).to have_content("Merchant With Most Items:\n#{Merchant.most_items.name}")
-    #
-    # within("#most-items") do
-    #   click_link("#{Merchant.most_items.name}")
-    # end
-    #
-    # expect(current_path).to eq("/merchants/#{Merchant.most_items.id}")
+
+    click_link("most-items")
+
+    expect(current_path).to eq("/merchants/#{Merchant.most_items.id}")
   end
 
   it 'should show merchant with highest priced item' do
@@ -50,9 +48,7 @@ RSpec.describe 'Merchant Dashboard' do
 
     expect(page).to have_content("Merchant With Highest Priced Item:\n#{Merchant.highest_priced_item.name}")
 
-    within("#high-price") do
-      click_on("#{Merchant.highest_priced_item.name}")
-    end
+    click_on('high-price')
 
     expect(current_path).to eq("/merchants/#{Merchant.highest_priced_item.id}")
   end
