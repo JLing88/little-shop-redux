@@ -6,6 +6,7 @@ body {
 
 a {
   color: darkblue;
+  float: center;
 }
 
 header {
@@ -31,6 +32,10 @@ header nav {
 nav li {
   display: inline-block;
   padding: 20px 20px;
+}
+
+.dashboard {
+  float:left;
 }
 
 .dashboard-header {
