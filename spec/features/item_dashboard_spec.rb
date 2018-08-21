@@ -86,7 +86,6 @@ RSpec.describe "Item Dashboard" do
                          unit_price: 1000)
 
     visit '/items-dashboard'
-    save_and_open_page
 
     click_on('oldest-item')
 
@@ -107,7 +106,6 @@ RSpec.describe "Item Dashboard" do
                          unit_price: 1000)
 
     visit '/items-dashboard'
-    save_and_open_page
 
     click_on('newest-item')
 
