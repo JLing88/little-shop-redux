@@ -13,8 +13,8 @@ RSpec.describe 'item index page' do
 
       expect(page).to have_content(item_1.title)
       expect(page).to have_content(item_2.title)
-      expect(page).to have_content("11.99")
-      expect(page).to have_content("2.99")
+      expect(page).to have_content("#{'$%.2f' % (item_1.unit_price/100)}")
+      expect(page).to have_content("#{'$%.2f' % (item_2.unit_price/100)}")
     end
   end
 
