@@ -7,22 +7,10 @@
 
 
 <% @merchants.each do |merchant| %>
-  <div id="merchant-<%= merchant.id %>">
+  <div id="merchant-<%= merchant.id %>" class='index-boxes'>
     <h4><%= merchant.name %></h4>
     <p>Total Items: <%= merchant.items.count %></p>
     <p>Average Item Price: $<%= merchant.average_price.round(2) %></p>
     <p>Total Price of all Items: $<%= merchant.total_item_price.round(2) %></p>
-
-<div class='dashboard-box'>
-  <p>Merchant With Most Items:</p>
-
-  <p>Merchant With Highest Price Item:</p>
-</div>
-
-<% @merchants.each do |merchant| %>
-  <div id="merchant-<%= merchant.id %>" class='index-boxes'>
-    <p><label>Total Items:</label> <%= merchant.items.count %></p>
-    <p><label>Average Item Price:</label> $<%= merchant.items.average_price.round(2) %></p>
   </div>
 <% end %>
-  
