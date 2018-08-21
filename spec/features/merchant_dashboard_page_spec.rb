@@ -25,7 +25,7 @@ RSpec.describe 'Merchant Dashboard' do
     visit '/merchants-dashboard'
 
     within("#merchant-#{@merchant.id}") do
-      expect(page).to have_content("Total Price of all Items: $#{@merchant.items.total_item_price.round(2)}")
+      expect(page).to have_content("Total Price of all Items: $#{@merchant.total_item_price.round(2)}")
     end
   end
 end

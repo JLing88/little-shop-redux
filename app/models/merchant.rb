@@ -6,4 +6,8 @@ class Merchant < ActiveRecord::Base
   def average_price
     items.average(:unit_price)
   end
+
+  def total_item_price
+    items.sum(:unit_price)
+  end
 end
