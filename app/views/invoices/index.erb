@@ -2,7 +2,7 @@
 
   <div>
     <% @invoices.each do |invoice|%>
-      <div id="invoice-<%= invoice.id %>">
+      <div id="invoice-<%= invoice.id %>" class='index-boxes'>
           <a href="/invoices/<%= invoice.id %>">Invoice: <%= invoice.id %></a>
 
         <form action='/invoices/<%= invoice.id %>/edit' method='get'>
