@@ -6,6 +6,7 @@
 
 <% @merchants.each do |merchant| %>
   <div id="merchant-<%= merchant.id %>">
+    <h4><%= merchant.name %></h4>
     <p><label>Total Items:</label> <%= merchant.items.count %></p>
     <p><label>Average Item Price:</label> $<%= merchant.items.average_price.round(2) %></p>
   </div>

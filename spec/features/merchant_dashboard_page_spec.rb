@@ -20,4 +20,12 @@ RSpec.describe 'Merchant Dashboard' do
       expect(page).to have_content("Average Item Price: $#{@merchant.items.average_price.round(2)}")
     end
   end
+
+  it 'should show total item price per merchant' do
+    visit '/merchants-dashboard'
+
+    within("#merchant-#{@merchant.id}") do
+      expect(page).to have_content("Total Price of all Items: $#{@merchant.items.total_item_price.round(2)}")
+    end
+  end
 end
