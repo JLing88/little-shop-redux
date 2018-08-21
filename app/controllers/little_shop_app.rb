@@ -120,7 +120,6 @@ class LittleShopApp < Sinatra::Base
     @percent_pending = Invoice.status_percent('pending')
     @percent_shipped = Invoice.status_percent('shipped')
     @percent_returned = Invoice.status_percent('returned')
-
     erb :'dashboards/invoices-dashboard'
   end
 
