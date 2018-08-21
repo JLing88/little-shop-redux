@@ -1,6 +1,7 @@
 <h2>Items Dashboard</h2>
-
-<h4>Total count of items: <%= @count  %></h4>
-<h4>Average price of all items: <%= number_to_currency(@avg_price) %></h4>
-<h4>Newest item: <%= @newest_item.title %></h4>
-<h4>Oldest item: <%= @oldest_item.title %></h4>
+<div>
+  <h4 id='dashboard-field' class="dashboard-box">Total count of items: <%= @count  %></h4>
+  <h4 id='dashboard-field' class="dashboard-box">Average price of all items: <%= number_to_currency(@avg_price) %></h4>
+  <h4 id='dashboard-field' class="dashboard-box">Newest item: <a id='newest-item' href="/items/<%= @newest_item.id %>"><%= @newest_item.title %></h4></a>
+  <h4 id='dashboard-field' class="dashboard-box">Oldest item: <a id='oldest-item' href="/items/<%= @oldest_item.id %>"><%= @oldest_item.title %></h4></a>
+</div>
