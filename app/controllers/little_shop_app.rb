@@ -22,6 +22,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/merchants-dashboard' do
     @merchants = Merchant.all
+    @most_items = Merchant.most_items
     erb :"dashboards/merchants-dashboard"
   end
 

@@ -31,6 +31,8 @@ RSpec.describe 'Merchant index page' do
     end
 
     it 'should have a dashboard link' do
+      merchant = Merchant.create(name: "Target")
+      item = merchant.items.create(title: "stuff", description: "ljadglkjg", unit_price: 50)
       visit '/merchants'
       click_on("Dashboard")
 
