@@ -34,7 +34,7 @@ RSpec.describe 'Merchant index page' do
       visit '/merchants'
       click_on("Dashboard")
 
-      expect(current_path).to eq('/merchants/merchants-dashboard')
+      expect(current_path).to eq('/merchants-dashboard')
     end
   end
 
