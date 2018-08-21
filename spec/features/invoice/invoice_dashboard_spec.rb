@@ -1,15 +1,6 @@
-RSpec.describe Invoice, type: :model do
-  describe 'Validations' do
-    it { should validate_presence_of(:merchant_id) }
-    it { should validate_presence_of(:status) }
-  end
-  describe 'Relationships' do
-    it { should belong_to(:merchant) }
-    it { should have_many(:items) }
-    it { should have_many(:invoice_items) }
-  end
-  describe 'Class Methods' do
-    it 'should calculate each invoice status as a percent of total invoices' do
+RSpec.describe 'Invoice Dashboard' do
+  describe 'Dashboard' do
+    it 'should show each invoice status as a percent of total invoices' do
       merchant_1 = Merchant.create(name: "Joe")
       merchant_2 = Merchant.create(name: "Joelle")
       merchant_3 = Merchant.create(name: "Jonas")
@@ -27,9 +18,13 @@ RSpec.describe Invoice, type: :model do
       percent_shipped = Invoice.status_percent('shipped')
       percent_returned = Invoice.status_percent('returned')
 
-      expect(percent_pending.round(2)).to eq(33.33)
-      expect(percent_shipped.round(2)).to eq(16.67)
-      expect(percent_returned.round(2)).to eq(50)
+        visit '/invoices-dashboard'
+
+        expect(page).to have_content("Invoice Dashboard")
+
+        expect(page).to have_content("Pending: #{percent_pending.round(2)}%")
+        expect(page).to have_content("Shipped: #{percent_shipped.round(2)}%")
+        expect(page).to have_content("Returned: #{percent_returned.round(2)}%")
+      end
     end
   end
-end

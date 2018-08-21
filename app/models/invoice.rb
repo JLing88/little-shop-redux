@@ -5,6 +5,6 @@ class Invoice < ActiveRecord::Base
   validates_presence_of :merchant_id, :status
 
   def self.status_percent(status)
-    ((where(status: status).count / all.count.to_f) * 100).round
+    (where(status: status).count / all.count.to_f) * 100
   end
 end

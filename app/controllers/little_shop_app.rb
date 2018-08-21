@@ -113,8 +113,11 @@ class LittleShopApp < Sinatra::Base
     redirect '/invoices'
   end
 
-  get '/invoices/dashboard' do
-    @invoices = Invoices.all
+  get '/invoices-dashboard' do
+    # @invoices = Invoices.all
+    @percent_pending = Invoice.status_percent('pending')
+    @percent_shipped = Invoice.status_percent('shipped')
+    @percent_returned = Invoice.status_percent('returned')
 
     erb :'dashboards/invoices-dashboard'
   end
