@@ -1,15 +1,26 @@
-<div>
-  <h4>Items</h4>
-   <h5>
-    <a href='/items/new'>Create New Item</a>
-  </h5>
-</div>
+<h1 class='title'>Items</h1>
+
+<a class='create_new' href='/items/new'>Create New Item</a>
+<a class='dashboard' href='/items-dashboard'>Dashboard</a>
+
 <div>
   <% @items.each do |item| %>
-    <h4>
+  <div class='index-boxes'>
+    <p>
       <a href="/items/<%= item.id %>"><%= item.title %></a>
-    </h4>
+    </p>
+
     <img src="/widget_1.jpg">
-    <h5>Price: <%= number_to_currency(item.unit_price) %> </h5>
+    <p>Price: <%= number_to_currency(item.unit_price) %> </p>
+    <form action='/items/<%= item.id %>/edit' method='get'>
+      <input id='edit' type='submit' name="Edit" value="Edit">
+    </form>
+
+    <form action='/items/<%= item.id %>' method='post'>
+      <input type='hidden' name='_method' value='Delete'>
+      <input type='submit' value='Delete'>
+    </form>
+
+  </div>
   <% end %>
 </div>
