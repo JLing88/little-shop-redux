@@ -8,6 +8,7 @@
 
 <% @merchants.each do |merchant| %>
   <div id="merchant-<%= merchant.id %>" class='index-boxes'>
-    <label class='total-items'>Total Items: <%= merchant.items.count %>
+    <p><label>Total Items:</label> <%= merchant.items.count %></p>
+    <p><label>Average Item Price:</label> $<%= merchant.items.average_price.round(2) %></p>
   </div>
 <% end %>
