@@ -18,6 +18,7 @@
     <th> -Quantity- </th>
   </tr>
   <% @invoice.invoice_items.each do |ii|%>
+  <% @total_price += (ii.unit_price * ii.quantity) %>
   <tr>
     <td><%= ii.item.id %>
     <td><%= ii.item.title %></td>
@@ -26,3 +27,5 @@
   </tr>
   <% end  %>
 </table>
+
+<h5> Total Price: <%= number_to_currency(@total_price) %>

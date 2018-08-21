@@ -95,6 +95,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/invoices/:id' do
     @invoice = Invoice.find(params[:id])
+    @total_price = 0
     erb :"invoices/show"
   end
 

@@ -47,6 +47,26 @@ RSpec.describe 'Invoice show page' do
       expect(page).to have_content(ii_2_price)
     end
 
+    it 'shows a subtotal for the invoice' do
+      item_1 = Item.create(title: "Widget_1",
+                           description: "stuff",
+                           unit_price: 299)
+
+      item_2 = Item.create(title: "Widget_2",
+                           description: "things",
+                           unit_price: 1099)
+
+      invoice = Invoice.create(customer_id: 1, status: 'shipped', merchant_id: 1)
+
+      ii_1 = invoice.invoice_items.create(item_id: item_1.id, unit_price: 100, quantity: 2)
+      ii_2 = invoice.invoice_items.create(item_id: item_2.id, unit_price: 50, quantity: 3)
+
+      visit "/invoices/#{invoice.id}"
+
+      subtotal = "$3.50"
+      expect(page).to have_content(subtotal)
+    end
+
     it 'user can delete an invoice from show page' do
       merchant_1 = Merchant.create(name: "Joe")
       merchant_2 = Merchant.create(name: "Joelle")
