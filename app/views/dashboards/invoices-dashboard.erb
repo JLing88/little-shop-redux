@@ -1,10 +1,19 @@
 <h1>Invoice Dashboard</h1>
 
 <div>
-  <h3>Staus Percentages:</h3>
+  <h3>Status Percentages:</h3>
     <ul>
       <li>Pending: <%= @percent_pending.round(2) %>%</li>
       <li>Shipped: <%= @percent_shipped.round(2) %>%</li>
       <li>Returned: <%= @percent_returned.round(2) %>%</li>
     </ul>
 </div>
+
+<h4>Highest Unit Price:</h4>
+  <a id='high-price' href='/invoices/<%= @highest_unit_price %>'><%= @highest_unit_price %></a>
+<h4>Lowest Unit Price:</h4>
+  <a id='low-price' href='/invoices/<%= @lowest_unit_price %>'><%= @lowest_unit_price %></a>
+<h4>Highest Quantity:</h4>
+  <a id='high-quantity' href='/invoices/<%= @highest_quantity %>'><%= @highest_quantity %></a>
+<h4>Lowest Quantity:</h4>
+  <a id='low-quantity' href='/invoices/<%= @lowest_quantity %>'><%= @lowest_quantity %></a>
