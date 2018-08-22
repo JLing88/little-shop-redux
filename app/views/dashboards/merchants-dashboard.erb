@@ -1,10 +1,10 @@
 <h1 class='dashboard-header'>Merchants Dashboard</h1>
-
+<div class='dashboard-box'>
 <h3>Merchant With Most Items:</h3>
 <a id='most-items' href="/merchants/<%= @most_items.id %>"><%= @most_items.name %></a>
 <h3>Merchant With Highest Priced Item:</h3>
 <a id='high-price' href="/merchants/<%= @highest_priced_item.id %>"><%= @highest_priced_item.name %></a>
-
+</div>
 
 <% @merchants.each do |merchant| %>
   <div id="merchant-<%= merchant.id %>" class='index-boxes'>
